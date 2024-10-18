@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Usia</title>
+    <style>
+        body, html, * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: saddlebrown;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 100px;
+        }
+        input {
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 30px;
+            box-shadow: 1px 1px 5px 1px black;
+        }
+        button {
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .info {
+            display: flex;
+            color: crimson;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cek usia anda</h2>
+        <label for="tahunLahir">Masukkan tahun lahir anda :</label>
+        <input type="number" placeholder="contoh : 1999" id="tahunLahir">
+        <button onclick="generateUmur()">Generate umur</button>
+        <div class="info">
+            <p id="info"></p>
+        </div>
+    </div>
+
+    <script>
+        // tahun kelahiran
+        // rules generate ke umur
+        // tampilkan hasil
+        let generateUmur = ()=> {
+            let tahunLahir = document.getElementById('tahunLahir').value;
+            let tahunSekarang = new Date().getFullYear();
+        
+            let umur = tahunSekarang - tahunLahir;  
+            
+            let info = document.getElementById("info");
+
+            info.innerHTML = `<marquee>Umur anda adalah ${umur} tahun</marquee>`;
+        }
+    </script>
+</body>
+</html>
