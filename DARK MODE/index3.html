@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode 3</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cuy University Dark Mode Try 3</h1>
+        <nav>
+            <a onclick="backHome()" id="refresh">Home</a>
+            <a onclick="darkMode()" id="modeDark">Mode Dark</a>
+        </nav>
+        <p id="info"></p>
+    </div>
+
+    <script>
+        let body = document.body;
+        let modeDark = document.getElementById('modeDark');
+        let refresh = document.getElementById('refresh');
+
+        let info =document.getElementById('info');
+
+        let darkLimit = 5;
+        let darkCounter = 0;
+        let remainingLeft;
+
+        function darkMode() {
+            if (remainingLeft == 1) {
+                info.textContent = "jatah anda habis";
+                refresh.textContent = 'refresh';
+                modeDark.style.display = "none";
+                return;
+            }
+
+            darkCounter += 1;
+            remainingLeft = darkLimit - darkCounter;
+            info.textContent = `anda telah menggunakan dark mode sebanyak ${darkCounter}, penggunaan tersisa ${remainingLeft}`
+            body.classList.toggle("dark");
+        }
+
+
+        function backHome() {
+            location.reload();
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode latihan</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="#" id="home" onclick="backHome()">Home</a>
+            <a onclick="mode()" id="darkMode">Mode Dark</a>
+            <a onclick="jomblo()" id="jombloMode">Mode Jomblo</a>
+
+        </nav>
+        <p id="info"></p>
+        <h1>Cuy University Dark Mode</h1>
+    </div>
+
+    <script>
+        // Code for mode dark
+        let body = document.body;
+        let darkMode = document.getElementById("darkMode");
+        let jombloMode = document.getElementById('jombloMode');
+        
+        let info = document.getElementById('info');
+        let home = document.getElementById('home');
+
+        // dark
+        const darkLimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft ;
+        // Jomblo
+        let jombloRemainingLeft;
+        const jombloLimit = 5;
+        let jombloCounter = 0;
+
+        function mode() {
+            if(darkRemainingLeft == 1){
+                info.textContent = "Jatah anda habis";
+                darkMode.style.display = "none";
+                home.textContent = "restart";
+                return;
+            }
+
+            darkCounter += 1;
+            darkRemainingLeft = darkLimit - darkCounter;
+            // Feedback function berjalan
+            body.classList.toggle('dark');
+            info.textContent = `dark mode anda dipakai sebanyak ${darkCounter}, tersisa ${darkRemainingLeft}`;
+        }
+        // Code for modeJomblo
+
+        function jomblo(){
+            if(jombloRemainingLeft == 1){
+                info.textContent = "Jatah anda habis";
+                jombloMode.style.display = "none";                
+                home.textContent = "restart";
+                return;
+            }
+            jombloCounter += 1;
+            jombloRemainingLeft = jombloLimit - jombloCounter;
+            // Feedback function berjalan
+            body.classList.toggle('jomblo');
+            info.textContent = `jomblo mode anda dipakai sebanyak ${jombloCounter}, tersisa ${jombloRemainingLeft}`;
+        }
+
+
+        // Backhome
+        function backHome(){
+            location.reload();
+        }
+
+    </script>
+    
+</body>
+</html>
